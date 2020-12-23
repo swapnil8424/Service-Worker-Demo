@@ -1,0 +1,56 @@
+.notifyButton {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.notifyButton button {
+  padding: 8px;
+  font-size: 14px;
+  background-color: #ffc220;
+  color: #000;
+}
+
+.contact-details {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+#map {
+  flex: 1;
+  height: 440px;
+  padding: 20px;
+}
+
+#map img {
+  height: 400px;
+  width: 100%;
+}
+
+#contact {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.address {
+  flex: 1;
+  text-align: center;
+}
+
+.phone {
+  flex: 1;
+  text-align: center;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.icons img {
+  margin: 8px;
+  height: 30px;
+  width: 30px;
+}

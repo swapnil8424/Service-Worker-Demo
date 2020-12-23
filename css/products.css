@@ -1,0 +1,60 @@
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 8px;
+  column-gap: 12px;
+}
+
+.flex > section {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  max-width: 400px;
+  padding: 12px;
+  border: 1px solid #c6c6c6;
+}
+
+.flex > section:hover {
+  box-shadow: -2px 4px #c6c6c6;
+}
+
+.flex > section img {
+  height: 300px;
+  width: 400px;
+  padding: 12px;
+}
+
+.flex > section img:hover {
+  transform: scale(1.05);
+  transition: 0.5s ease;
+}
+
+.flex > section hr {
+  height: 2px;
+  width: 100%;
+}
+
+.flex > section h2,
+p,
+ul {
+  margin: 8px 0px;
+}
+
+.flex > section > p {
+  text-align: justify;
+  height: 150px;
+  overflow: scroll;
+}
+
+.flex ul {
+  width: 100%;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex ul > li {
+  font-weight: 800;
+}

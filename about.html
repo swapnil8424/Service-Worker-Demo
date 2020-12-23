@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0071ce" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/about.css" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="/assets/logo192.png" />
+    <title>Service Worker - About Us</title>
+  </head>
+  <body>
+    <nav>
+      <div class="logo"><img src="/assets/logo192.png" /></div>
+      <div class="name">Company</div>
+      <div class="nav-items">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li class="currentTab">
+          <a href="about.html" class="currentTab">About</a>
+        </li>
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="Search here...." />
+        <button type="submit">Submit</button>
+      </div>
+    </nav>
+    <h2 style="text-align: center; margin-top: 20px">About Us</h2>
+    <div class="contact-details">
+      <div id="map">
+        <img src="/assets/map-location.png" />
+      </div>
+      <div id="contact">
+        <div class="address">
+          <h3 style="margin-bottom: 20px">Our Address</h3>
+          <hr />
+          <h5 style="margin-top: 10px">
+            Uluru-Kata <br />
+            Tjuta National Park <br />
+            PO Box 119 <br />
+            Yulara NT 0872 <br />
+            Australia
+          </h5>
+        </div>
+        <div class="phone">
+          <h3 style="margin-bottom: 20px">Contact Us</h3>
+          <hr />
+          <div class="icons">
+            <div>
+              <img src="/assets/email.svg" />
+              <p>serviceworkerdemo@gmail.com</p>
+            </div>
+            <div>
+              <img src="/assets/call.svg" />
+              <p>1800-000-0000</p>
+            </div>
+            <div>
+              <img src="/assets/whatsapp.svg" />
+              <p>9999999999</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notifyButton">
+      <button id="notificationButton">Subscribe to Notification!</button>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

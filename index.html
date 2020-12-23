@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0071ce" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="/assets/logo192.png" />
+    <title>Service Worker - Demo</title>
+  </head>
+  <body>
+    <nav>
+      <div class="logo"><img src="/assets/logo192.png" /></div>
+      <div class="name">Company</div>
+      <div class="nav-items">
+        <li><a href="index.html" class="currentTab">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="Search here...." />
+        <button type="submit">Submit</button>
+      </div>
+    </nav>
+
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <img src="/assets/image1.jpeg" style="width: 100%" class="slide-img" />
+        <div class="text">Grocery Retail Store</div>
+      </div>
+
+      <div class="mySlides fade">
+        <img src="/assets/image2.png" style="width: 100%" class="slide-img" />
+        <div class="text">Fashion Retail Store</div>
+      </div>
+
+      <div class="mySlides fade">
+        <img src="/assets/image3.jpeg" style="width: 100%" class="slide-img" />
+        <div class="text">Largest Retail Store</div>
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <script src="/js/image-slideshow.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

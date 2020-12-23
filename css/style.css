@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,800");
+
+* {
+  margin: 0;
+  padding-bottom: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  padding-bottom: 20px;
+}
+
+nav {
+  background: #041f41;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0px 100px;
+}
+
+.logo {
+  height: 60px;
+  width: 60px;
+  border-radius: 30px;
+  background: #ffc220;
+  text-align: center;
+  padding: 5px 0px;
+}
+
+nav img {
+  height: 50px;
+  width: 50px;
+}
+
+.name {
+  font-size: 30px;
+  color: #fff;
+  padding: 0px 8px;
+}
+
+nav .currentTab {
+  color: #ffc220;
+}
+
+nav .nav-items {
+  display: flex;
+  flex: 1;
+  list-style: none;
+  padding: 0 0 0 60px;
+}
+
+nav .nav-items li {
+  margin-right: 10px;
+  color: #fff;
+}
+
+nav a {
+  padding: 10px;
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.searchbar {
+  display: flex;
+}
+
+.searchbar input {
+  height: 40px;
+  width: 250px;
+  padding: 5px;
+  margin-right: 0;
+  border-width: 0px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.searchbar button {
+  height: 40px;
+  padding: 8px;
+  margin-left: 0px;
+  border-width: 0px;
+  background-color: #c6c6c6;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
