@@ -1,7 +1,7 @@
 const publicVapidKey =
-  "BBvjBxCZXFwkHgBYJsu3HPzoB5L5TIRFqxLZqG1l7UwLzZOjpc2Dz05s7zBrCoVoJTg_3__B6hX9FMXCZN5hnKs";
+  "BKDTcuzaWqp0zBx8JeZ296kRV6EqP1K7o6At23snWM6ugFMgkmMTmASZvGJ-LCbCrutAYrCD3SiKF_Os9iPHfbI";
 
-var regObject;
+let regObject;
 // Check if ServiceWorker is supported and then register.
 if ("serviceWorker" in navigator) {
   console.log("Service Worker Supported!");
@@ -17,32 +17,51 @@ if ("serviceWorker" in navigator) {
 }
 
 var subcribeButton = document.getElementById("notificationButton");
+var addUserButton = document.getElementById("addUser");
 
 if (subcribeButton) {
   subcribeButton.addEventListener("click", function () {
-    send(regObject).catch((err) => console.log(err));
+    send().catch((err) => console.log(err));
   });
 }
 
-async function send(register) {
+if (addUserButton) {
+  addUserButton.addEventListener("click", function() {
+    var inputVal = document.getElementById("username").value;
+    addUser(inputVal).catch(err => console.log(err));
+  })
+}
+
+async function send() {
   // register push
   console.log("Register Push....");
-  const subscription = await register.pushManager.subscribe({
-    userVisibleOnly: true,
-    applicationServerKey: urlBase64ToUint8Array(publicVapidKey),
-  });
-  console.log("Push Registered....");
-
-  // Send push notification
-  console.log("Sending Push....");
-  await fetch("/subscribe", {
-    method: "POST",
-    body: JSON.stringify(subscription),
-    headers: {
-      "content-type": "application/json",
-    },
-  });
-  console.log("Push Sent....");
+  regObject.pushManager.getSubscription().then(async function(subscription) {
+    if(subscription) {
+      console.log("Unsubscribing.....");
+      subcribeButton.innerHTML = "Subscribe to Notification";
+      return subscription.unsubscribe();
+    } else {
+      const subscription = await regObject.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: urlBase64ToUint8Array(publicVapidKey),
+      });
+      console.log("Push Registered....");
+      console.log(subscription);
+      // Send push notification
+      console.log("Sending Push....");
+      await fetch("/subscribe", {
+        method: "POST",
+        body: JSON.stringify(subscription),
+        headers: {
+          "content-type": "application/json",
+        },
+      });
+      subcribeButton.innerHTML = "Unsubscribe to Notification"
+      console.log("Push Sent....");
+    }
+  }).catch(function(error) {
+    console.log("Error while subsribing: ", error);
+  })
 }
 
 function urlBase64ToUint8Array(base64String) {
@@ -54,4 +73,31 @@ function urlBase64ToUint8Array(base64String) {
     outputArray[i] = rawData.charCodeAt(i);
   }
   return outputArray;
+}
+
+async function addUser(value) {
+  console.log("Adding user.....");
+  console.log(value);
+  let userObj =  {
+    "name": value 
+  };
+  // Call to Backend route
+  await fetch("/newUser", {
+    method: "POST",
+    body: JSON.stringify(userObj),
+    headers: {
+      "content-type": "application/json",
+    },
+  }).then(res => console.log(res))
+  .catch(e => backgroundSync(userObj));
+}
+
+function backgroundSync(obj) {
+  navigator.serviceWorker.ready.then(registration => {
+    registration.sync.register("add-user");
+
+    // Here save the obj in the IndexedDB
+    var cookie = 'userObj='+ JSON.stringify(obj);
+    document.cookie = cookie;
+  }).catch(e => console.log(e));
 }

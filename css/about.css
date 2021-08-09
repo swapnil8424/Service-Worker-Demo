@@ -10,6 +10,11 @@
   color: #000;
 }
 
+.user {
+  display: flex;
+  justify-content: center;
+}
+
 .contact-details {
   display: flex;
   justify-content: space-around;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,14 +12,14 @@
   </head>
   <body>
     <nav>
-      <div class="logo"><img src="/assets/logo192.png" /></div>
+      <div class="logo"><img src="/assets/logo192.png" alt="logo-img" /></div>
       <div class="name">Company</div>
       <div class="nav-items">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li class="currentTab">
+        <span><a href="index.html">Home</a></span>
+        <span><a href="products.html">Products</a></span>
+        <span class="currentTab">
           <a href="about.html" class="currentTab">About</a>
-        </li>
+        </span>
       </div>
       <div class="searchbar">
         <input type="text" placeholder="Search here...." />
@@ -29,7 +29,7 @@
     <h2 style="text-align: center; margin-top: 20px">About Us</h2>
     <div class="contact-details">
       <div id="map">
-        <img src="/assets/map-location.png" />
+        <img src="/assets/map-location.png" alt="map-img" />
       </div>
       <div id="contact">
         <div class="address">
@@ -48,20 +48,25 @@
           <hr />
           <div class="icons">
             <div>
-              <img src="/assets/email.svg" />
+              <img src="/assets/email.svg" alt="email-img" />
               <p>serviceworkerdemo@gmail.com</p>
             </div>
             <div>
-              <img src="/assets/call.svg" />
+              <img src="/assets/call.svg" alt="call-img" />
               <p>1800-000-0000</p>
             </div>
             <div>
-              <img src="/assets/whatsapp.svg" />
+              <img src="/assets/whatsapp.svg" alt="whatsapp-img" />
               <p>9999999999</p>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    <div class="user">
+      <label for="username" style="margin-right: 8px; font-size: 20px;">Enter name:</label>
+      <input type="text" id="username" name="uname" style="margin-right: 32px; height: 28px;">
+      <button id="addUser" style="padding: 8px;">Add User</button>
     </div>
     <div class="notifyButton">
       <button id="notificationButton">Subscribe to Notification!</button>

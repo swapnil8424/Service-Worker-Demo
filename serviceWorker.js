@@ -85,11 +85,42 @@ self.addEventListener("message", (event) => {
 });
 
 // Push Notification event
-self.addEventListener("push", (e) => {
-  const data = e.data.json();
+self.addEventListener("push", (event) => {
   console.log("Push received....");
-  self.registration.showNotification(data.title, {
-    body: "Notification from Service Worker-Demo",
+  const title = event.data.text();
+  const options = {
+    body: "Welcome Swapnil!",
     icon: "assets/logo192.png",
-  });
+  }
+  event.waitUntil(self.registration.showNotification(title, options));
+  console.log("Did you get notification?");
 });
+
+// Background Sync event
+self.addEventListener('sync', (event) => {
+  console.log("Performing sync....")
+  console.log(event);
+  if (event.tag === 'add-user') {
+    // call method
+    console.log("Sync event found...");
+    event.waitUntil(syncData());
+  }
+});
+
+async function syncData() {
+  // Make API Calls to sync data with the server.
+  const userObj = {
+    "name": "Swapnil"
+  }
+  await fetch("/newUser", {
+    method: "POST",
+    body: JSON.stringify(userObj),
+    headers: {
+      "content-type": "application/json",
+    },
+  }).then((res) =>{
+    console.log(res); 
+    Promise.resolve();
+  })
+  .catch(() => Promise.reject());
+}
